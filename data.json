@@ -1,0 +1,42 @@
+[
+	{
+		"locotype": "ТЭМ9",
+		"loconumber": "137",
+		"coordinates": {
+			"latitude": "53.676876",
+			"longitude": "84.989619"
+		}
+	},
+	{
+		"locotype": "ТЭМ9",
+		"loconumber": "74",
+		"coordinates": {
+			"latitude": "53.6774",
+			"longitude": "84.99089"
+		}
+	},
+	{
+		"locotype": "ТГМ6",
+		"loconumber": "2444",
+		"coordinates": {
+			"latitude": "53.67754",
+			"longitude": "84.99285"
+		}
+	},
+	{
+		"locotype": "ТГМ6",
+		"loconumber": "2345",
+		"coordinates": {
+			"latitude": "53.67762",
+			"longitude": "84.99081"
+		}
+	},
+	{
+		"locotype": "ТГМ6",
+		"loconumber": "3312",
+		"coordinates": {
+			"latitude": "53.67562",
+			"longitude": "84.98894"
+		}
+	}
+]
