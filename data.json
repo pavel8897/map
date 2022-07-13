@@ -1,4 +1,4 @@
-[
+let coords = [
 	{
 		"locotype": "ТЭМ9",
 		"loconumber": "137",
