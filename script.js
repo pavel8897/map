@@ -1,17 +1,32 @@
-let map1 = [53.676876, 84.989619]
-
 function init() {
 	let map = new ymaps.Map('map', {
-		center: map1,
-		zoom: 10
+		center: [53.676876,84.989619],
+		zoom: 16
 	})
 
-	let placemark = new ymaps.Placemark(map1, {}, {
-		iconLayout: 'default#image',
-		iconImageHref: 'https://cdn4.iconfinder.com/data/icons/symbol-blue-set-1/100/Untitled-2-85-1024.png',
-		iconImageSize: [40, 40],
-		iconImageOffset: [-19, -44]
-	})
+	let myCollection = new ymaps.GeoObjectCollection({}, {
+	    preset: 'islands#redIcon', //все метки красные
+	    draggable: true // и их можно перемещать
+	});
+
+	for(let coord in coords) {
+		let arr = []
+		arr.push(coords[coord]['coordinates']['latitude'])
+		arr.push(coords[coord]['coordinates']['longitude'])
+	    myCollection.add(new ymaps.Placemark(arr, {
+	    	balloonContent: `
+	    		<div class="balloon">
+	    			<span>${coords[coord]['locotype']}</span>
+	    			<div>${coords[coord]['loconumber']}</div>
+	    		</div>
+	    	`
+	    }, {
+	    	iconLayout: 'default#image',
+	    	iconImageHref: 'https://cdn-icons.flaticon.com/png/512/5836/premium/5836608.png?token=exp=1657703056~hmac=5347a1ceb64dbe1a8a91c1e7139c5df2',
+	    	iconImageSize: [30, 30],
+	    	iconImageOffset: [-20, -40]
+	    }));
+	}
 
 	map.controls.remove('geolocationControl'); // удаляем геолокацию
 	map.controls.remove('searchControl'); // удаляем поиск
@@ -22,7 +37,7 @@ function init() {
 	map.controls.remove('rulerControl'); // удаляем контрол правил
 	map.behaviors.disable(['scrollZoom']); // отключаем скролл карты (опционально)
 
-	map.geoObjects.add(placemark)
+	map.geoObjects.add(myCollection)
 }
 
 ymaps.ready(init)
